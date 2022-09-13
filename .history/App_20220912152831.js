@@ -1,0 +1,57 @@
+import { StatusBar } from 'expo-status-bar';
+import react from 'react';
+import { StyleSheet, Image, View, Dimensions, ScrollView } from 'react-native';
+
+const { width } = Dimensions.get('screen');
+const colors = ['#A1C9F1', '#F8DAE9', '#30821b'];
+// const ImageBackgroundBd=()=>(
+//   <View style={styles.container}>
+//     <ImageBackground source={image}resizeMode="cover" style={styles.image}>
+
+//     </ImageBackground>
+//   </View>
+
+// const shapes = [
+//   'circle',
+//   'oval',
+
+// ]
+
+
+export default function App() {
+  return (
+    <ScrollView>
+      <View style={styles.container}>
+    
+        {colors.map((x, i) => (
+          <View style={[styles.bgCircle1, {
+            backgroundColor: x,
+            transform: [
+              { translateX: -(width / 2) + (1 * width / colors.length) },
+              { translateY: -(width * 0.2) - (i / 0.75 * width / colors.length) }
+            ]
+          }]} key={i.toString()} />
+          <Image source={rew}
+        ))}
+
+      </View>
+    </ScrollView>
+
+  );
+}
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+
+  },
+  bgCircle1: {
+    position: 'absolute',
+    height: width * 1,
+    width: width * 1,
+    borderRadius: width,
+    left: 0,
+    top: 0
+  }
+});
